@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://hhu6r1wgtfox"]
+
+[ext_resource type="ArrayMesh" uid="uid://hvjmrydxre3h" path="res://entities/laser_receiver_directional/laser_receiver_directional.vox" id="1_uo8w0"]
+
+[node name="LaserReceiverDirectional" type="Node3D" unique_id=948548707]
+
+[node name="Model" type="MeshInstance3D" parent="." unique_id=692169550]
+mesh = ExtResource("1_uo8w0")
