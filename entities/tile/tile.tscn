@@ -4,6 +4,6 @@
 
 [node name="Tile" type="Node3D" unique_id=1097886282]
 
-[node name="Model" type="MeshInstance3D" parent="." unique_id=1082394634]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1082394634]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = ExtResource("1_xkrdj")

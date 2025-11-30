@@ -5,9 +5,6 @@ extends Node3D
 const LineRenderer3D = preload("res://addons/LineRenderer/line_renderer.gd")
 
 
-const MAX_DIST = 64
-
-
 @export_group("Dependencies")
 @export var line_renderer: LineRenderer3D
 @export var raycast: RayCast3D
@@ -16,7 +13,6 @@ const MAX_DIST = 64
 func _ready() -> void:
 	assert(line_renderer)
 	assert(raycast)
-	raycast.target_position = raycast.target_position.normalized() * MAX_DIST
 
 
 func _process(_delta: float) -> void:
@@ -28,4 +24,4 @@ func _process(_delta: float) -> void:
 		var relative_point = global_point - line_renderer.global_position
 		points.append(relative_point)
 	if points.size() == 1:
-		points.append(Vector3.FORWARD * MAX_DIST)
+		points.append(Vector3.FORWARD * raycast.target_position.length())

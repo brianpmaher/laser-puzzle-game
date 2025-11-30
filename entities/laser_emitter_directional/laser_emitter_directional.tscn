@@ -7,19 +7,19 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_w3xv2"]
 size = Vector3(0.39837646, 0.3945923, 0.50035095)
 
-[node name="LaserEmitterDirectional" type="Node3D" unique_id=1889599944 node_paths=PackedStringArray("model")]
+[node name="LaserEmitterDirectional" type="Node3D" unique_id=1889599944 node_paths=PackedStringArray("mesh_instance")]
 script = ExtResource("1_e6at1")
-model = NodePath("Model")
+mesh_instance = NodePath("MeshInstance3D")
 color = Color(0, 1, 1, 1)
 
-[node name="Model" type="MeshInstance3D" parent="." unique_id=2127569080]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2127569080]
 mesh = ExtResource("1_xbyob")
 
 [node name="Laser" parent="." unique_id=996571359 instance=ExtResource("2_w3xv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
-[node name="LaserCollision" type="StaticBody3D" parent="." unique_id=251010695]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=251010695]
 
-[node name="LaserCollider" type="CollisionShape3D" parent="LaserCollision" unique_id=1779215505]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1779215505]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0018615723, 0.6993103, 0.04853058)
 shape = SubResource("BoxShape3D_w3xv2")

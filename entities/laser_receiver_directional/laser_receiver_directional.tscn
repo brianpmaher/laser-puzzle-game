@@ -7,11 +7,11 @@ size = Vector3(0.40307617, 0.506897, 0.39990234)
 
 [node name="LaserReceiverDirectional" type="Node3D" unique_id=948548707]
 
-[node name="Model" type="MeshInstance3D" parent="." unique_id=692169550]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=692169550]
 mesh = ExtResource("1_uo8w0")
 
-[node name="LaserCollision" type="StaticBody3D" parent="." unique_id=975243389]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=975243389]
 
-[node name="LaserCollider" type="CollisionShape3D" parent="LaserCollision" unique_id=646513955]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=646513955]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0018310547, 0.6487732, 0.0007324219)
 shape = SubResource("BoxShape3D_uo8w0")
