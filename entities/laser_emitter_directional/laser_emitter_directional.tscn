@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1xlmwjdbpwhl"]
+[gd_scene load_steps=7 format=3 uid="uid://b1xlmwjdbpwhl"]
 
 [ext_resource type="Script" uid="uid://cr1g12g6vf0kb" path="res://entities/laser_emitter/laser_emitter.gd" id="1_e6at1"]
 [ext_resource type="ArrayMesh" uid="uid://bj4dd26lo5gsw" path="res://entities/laser_emitter_directional/laser_emitter_directional.vox" id="1_xbyob"]
 [ext_resource type="PackedScene" uid="uid://d3heu56m16x32" path="res://entities/laser/laser.tscn" id="2_w3xv2"]
+[ext_resource type="Script" uid="uid://dkj4fysd0tuqi" path="res://entities/laser_emitter/laser_emitter_provider.gd" id="4_he38d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w3xv2"]
 size = Vector3(0.39837646, 0.3945923, 0.50035095)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e6at1"]
+size = Vector3(0.4025879, 0.7963562, 0.7015991)
 
 [node name="LaserEmitterDirectional" type="Node3D" unique_id=1889599944 node_paths=PackedStringArray("laser", "mesh_instance")]
 script = ExtResource("1_e6at1")
@@ -18,8 +22,18 @@ mesh = ExtResource("1_xbyob")
 [node name="Laser" parent="." unique_id=996571359 instance=ExtResource("2_w3xv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=251010695]
+[node name="LaserStaticBody3D" type="StaticBody3D" parent="." unique_id=251010695]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1779215505]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LaserStaticBody3D" unique_id=1779215505]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0018615723, 0.6993103, 0.04853058)
 shape = SubResource("BoxShape3D_w3xv2")
+
+[node name="CursorStaticBody3D" type="StaticBody3D" parent="." unique_id=1934414857 node_paths=PackedStringArray("laser_emitter")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_he38d")
+laser_emitter = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CursorStaticBody3D" unique_id=681117037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0005187988, 0.50315857, -0.051841736)
+shape = SubResource("BoxShape3D_e6at1")
