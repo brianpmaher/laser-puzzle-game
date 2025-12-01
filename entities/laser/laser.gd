@@ -41,11 +41,9 @@ func _process(_delta: float) -> void:
 		var relative_point := global_point - line_renderer.global_position
 		points.append(relative_point)
 		var obj := raycast.get_collider()
-		assert(obj is CollisionObject3D)
-		var body := obj as CollisionObject3D
-		for collider in body.get_children():
-			if collider is LaserCollider:
-				var laser_collider := collider as LaserCollider
-				laser_collider.collide(self)
+		if obj is LaserColliderProvider:
+			var provider := obj as LaserColliderProvider
+			__collider = provider.laser_collider
+			__collider.collide(self)
 	if points.size() == 1:
 		points.append(Vector3.FORWARD * raycast.target_position.length())

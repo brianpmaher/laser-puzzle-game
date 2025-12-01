@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://hhu6r1wgtfox"]
+[gd_scene load_steps=6 format=3 uid="uid://hhu6r1wgtfox"]
 
 [ext_resource type="Script" uid="uid://b0hxt53fe8cq2" path="res://entities/laser_receiver/laser_receiver.gd" id="1_f8vsi"]
 [ext_resource type="ArrayMesh" uid="uid://hvjmrydxre3h" path="res://entities/laser_receiver_directional/laser_receiver_directional.vox" id="1_uo8w0"]
+[ext_resource type="Script" uid="uid://du1k5aepvs57i" path="res://entities/laser_collider/laser_collider_provider.gd" id="3_bqxi1"]
 [ext_resource type="PackedScene" uid="uid://dbmgng8vneokq" path="res://entities/laser_collider/laser_collider.tscn" id="3_uejub"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uejub"]
@@ -15,7 +16,9 @@ mesh_instance = NodePath("MeshInstance3D")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=692169550]
 mesh = ExtResource("1_uo8w0")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=975243389]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=975243389 node_paths=PackedStringArray("laser_collider")]
+script = ExtResource("3_bqxi1")
+laser_collider = NodePath("LaserCollider")
 
 [node name="LaserCollider" parent="StaticBody3D" unique_id=954233624 instance=ExtResource("3_uejub")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015258789, 0.7003288, -0.15979004)
