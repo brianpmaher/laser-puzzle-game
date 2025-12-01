@@ -8,5 +8,8 @@ extends PuzzleEntity
 
 func _ready() -> void:
 	super._ready()
+	
 	assert(laser)
+	
 	laser.set_color(color)
+	laser.set_process(false)

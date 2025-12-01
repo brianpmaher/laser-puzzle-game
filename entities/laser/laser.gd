@@ -37,10 +37,12 @@ func _process(_delta: float) -> void:
 	points.clear()
 	points.append(Vector3(0, 0, 0))
 	if raycast.is_colliding():
-		var global_point = raycast.get_collision_point()
-		var relative_point = global_point - line_renderer.global_position
+		var global_point := raycast.get_collision_point()
+		var relative_point := global_point - line_renderer.global_position
 		points.append(relative_point)
-		var body := raycast.get_collider() as CollisionObject3D
+		var obj := raycast.get_collider()
+		assert(obj is CollisionObject3D)
+		var body := obj as CollisionObject3D
 		for collider in body.get_children():
 			if collider is LaserCollider:
 				var laser_collider := collider as LaserCollider
