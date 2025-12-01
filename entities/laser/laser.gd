@@ -10,6 +10,14 @@ const LineRenderer3D = preload("res://addons/LineRenderer/line_renderer.gd")
 @export var raycast: RayCast3D
 
 
+var __collider: LaserCollider
+
+
+func get_color() -> Color:
+	var material: StandardMaterial3D = line_renderer.material_override
+	return material.albedo_color
+
+
 func set_color(color: Color) -> void:
 	var material := StandardMaterial3D.new()
 	material.albedo_color = color
@@ -22,6 +30,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if __collider:
+		__collider.reset()
+	
 	var points = line_renderer.points
 	points.clear()
 	points.append(Vector3(0, 0, 0))
@@ -29,5 +40,10 @@ func _process(_delta: float) -> void:
 		var global_point = raycast.get_collision_point()
 		var relative_point = global_point - line_renderer.global_position
 		points.append(relative_point)
+		var body := raycast.get_collider() as CollisionObject3D
+		for collider in body.get_children():
+			if collider is LaserCollider:
+				var laser_collider := collider as LaserCollider
+				laser_collider.collide(self)
 	if points.size() == 1:
 		points.append(Vector3.FORWARD * raycast.target_position.length())

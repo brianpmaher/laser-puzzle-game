@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbmgng8vneokq"]
+
+[ext_resource type="Script" uid="uid://b5ofvd76oq8ip" path="res://entities/laser_collider/laser_collider.gd" id="1_dumwu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uo8w0"]
+size = Vector3(0.21154785, 0.21601105, 0.07885742)
+
+[node name="LaserCollider" type="CollisionShape3D" unique_id=954233624]
+shape = SubResource("BoxShape3D_uo8w0")
+script = ExtResource("1_dumwu")

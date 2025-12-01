@@ -11,7 +11,6 @@ size = Vector3(0.39837646, 0.3945923, 0.50035095)
 script = ExtResource("1_e6at1")
 laser = NodePath("Laser")
 mesh_instance = NodePath("MeshInstance3D")
-color = Color(0, 1, 1, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2127569080]
 mesh = ExtResource("1_xbyob")

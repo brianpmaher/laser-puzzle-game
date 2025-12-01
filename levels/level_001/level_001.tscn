@@ -8,6 +8,7 @@
 
 [node name="LaserEmitterDirectional" parent="." unique_id=1889599944 instance=ExtResource("1_m8dcv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+color = Color(0, 1, 1, 1)
 
 [node name="Tile" parent="." unique_id=1097886282 instance=ExtResource("1_c1ja8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
@@ -17,3 +18,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="LaserReceiverDirectional" parent="." unique_id=948548707 instance=ExtResource("3_2mgoa")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -1)
+color = Color(0, 1, 1, 1)

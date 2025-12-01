@@ -6,15 +6,15 @@ extends Node3D
 @export var mesh_instance: MeshInstance3D
 
 @export_group("Settings")
-@export var color: Color = Color.WHITE
+@export var color: Color = Color.WHITE:
+	set(new_color):
+		color = new_color
+		var material := mesh_instance.get_active_material(0)
+		assert(material is StandardMaterial3D)
+		var standard_material := material as StandardMaterial3D
+		standard_material.albedo_color = color
+		mesh_instance.set_surface_override_material(0, standard_material)
 
 
 func _ready() -> void:
 	assert(mesh_instance)
-	__update_material()
-
-
-func __update_material() -> void:
-	var material: StandardMaterial3D = mesh_instance.get_active_material(0)
-	material.albedo_color = color
-	mesh_instance.set_surface_override_material(0, material)
