@@ -11,10 +11,10 @@ extends Node3D
 
 func _ready() -> void:
 	assert(mesh_instance)
-	__override_model_color()
+	__update_material()
 
 
-func __override_model_color() -> void:
+func __update_material() -> void:
 	var material: StandardMaterial3D = mesh_instance.get_active_material(0)
 	material.albedo_color = color
 	mesh_instance.set_surface_override_material(0, material)

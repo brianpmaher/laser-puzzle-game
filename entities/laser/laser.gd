@@ -10,6 +10,12 @@ const LineRenderer3D = preload("res://addons/LineRenderer/line_renderer.gd")
 @export var raycast: RayCast3D
 
 
+func set_color(color: Color) -> void:
+	var material := StandardMaterial3D.new()
+	material.albedo_color = color
+	line_renderer.material_override = material
+
+
 func _ready() -> void:
 	assert(line_renderer)
 	assert(raycast)

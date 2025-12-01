@@ -1,14 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1xlmwjdbpwhl"]
 
-[ext_resource type="Script" uid="uid://bwi2hv5goefhn" path="res://entities/puzzle_entity/puzzle_entity.gd" id="1_e6at1"]
+[ext_resource type="Script" uid="uid://cr1g12g6vf0kb" path="res://entities/laser_emitter/laser_emitter.gd" id="1_e6at1"]
 [ext_resource type="ArrayMesh" uid="uid://bj4dd26lo5gsw" path="res://entities/laser_emitter_directional/laser_emitter_directional.vox" id="1_xbyob"]
 [ext_resource type="PackedScene" uid="uid://d3heu56m16x32" path="res://entities/laser/laser.tscn" id="2_w3xv2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w3xv2"]
 size = Vector3(0.39837646, 0.3945923, 0.50035095)
 
-[node name="LaserEmitterDirectional" type="Node3D" unique_id=1889599944 node_paths=PackedStringArray("mesh_instance")]
+[node name="LaserEmitterDirectional" type="Node3D" unique_id=1889599944 node_paths=PackedStringArray("laser", "mesh_instance")]
 script = ExtResource("1_e6at1")
+laser = NodePath("Laser")
 mesh_instance = NodePath("MeshInstance3D")
 color = Color(0, 1, 1, 1)
 
