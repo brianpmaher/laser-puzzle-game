@@ -2,25 +2,33 @@ class_name GameCamera
 extends Camera3D
 
 
-@export_group("Dependencies")
-@export var raycast: RayCast3D
+const RAY_LENGTH := 64
 
 
-func _ready() -> void:
-	assert(raycast)
+var __selected_emitter: LaserEmitter
 
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			var length := raycast.target_position.length()
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			var space_state := get_world_3d().direct_space_state
 			var from := project_ray_origin(event.position)
-			var to := from + project_ray_normal(event.position) * length
-			raycast.position = from
-			raycast.target_position = to
-			if raycast.is_colliding():
-				var obj := raycast.get_collider()
+			var to := from + project_ray_normal(event.position) * RAY_LENGTH
+			var query := PhysicsRayQueryParameters3D.create(from, to)
+			var result := space_state.intersect_ray(query)
+			if not result.is_empty():
+				var obj: Object = result["collider"]
 				if obj is LaserEmitterProvider:
 					var provider := obj as LaserEmitterProvider
-					var emitter := provider.laser_emitter
-					emitter.selected = true
+					var laser_emitter = provider.laser_emitter
+					if __selected_emitter != laser_emitter:
+						if __selected_emitter:
+							__selected_emitter.selected = false
+						__selected_emitter = laser_emitter
+						__selected_emitter.selected = true
+					else:
+						assert(__selected_emitter.selected)
+						__selected_emitter.toggle()
+			elif __selected_emitter:
+				__selected_emitter.selected = false
+				__selected_emitter = null

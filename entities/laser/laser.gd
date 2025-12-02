@@ -24,6 +24,11 @@ func set_color(color: Color) -> void:
 	line_renderer.material_override = material
 
 
+func toggle(firing: bool) -> void:
+	if is_processing() and not firing:
+		line_renderer.points.clear()
+	set_process(firing)
+
 func _ready() -> void:
 	assert(line_renderer)
 	assert(raycast)

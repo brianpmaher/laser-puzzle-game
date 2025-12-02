@@ -6,6 +6,12 @@ extends PuzzleEntity
 @export var laser: Laser
 
 var selected: bool
+var firing: bool
+
+
+func toggle() -> void:
+	firing = not firing
+	laser.toggle(firing)
 
 
 func _ready() -> void:
@@ -14,9 +20,10 @@ func _ready() -> void:
 	assert(laser)
 	
 	laser.set_color(color)
-	laser.set_process(false)
+	laser.toggle(firing)
 
 
 func _process(_delta: float) -> void:
 	if selected:
-		DebugDraw3D.draw_box(position, quaternion, scale, Color.YELLOW)
+		var box_pos := global_position - Vector3(.5, 0, .5)
+		DebugDraw3D.draw_box(box_pos, quaternion, scale, Color.YELLOW)

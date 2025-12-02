@@ -30,9 +30,6 @@ func _ready():
 	pass
 
 func _process(_delta):
-	if points.size() < 2:
-		return
-	
 	camera = get_viewport().get_camera_3d()
 	if camera == null:
 		return
