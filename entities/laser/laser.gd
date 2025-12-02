@@ -9,8 +9,7 @@ const LineRenderer3D = preload("res://addons/LineRenderer/line_renderer.gd")
 @export var line_renderer: LineRenderer3D
 @export var raycast: RayCast3D
 
-
-var __collider: LaserCollider
+var collider: LaserCollider
 
 
 func get_color() -> Color:
@@ -27,7 +26,11 @@ func set_color(color: Color) -> void:
 func toggle(firing: bool) -> void:
 	if is_processing() and not firing:
 		line_renderer.points.clear()
+		# Must append two points to trigger rerender of line mesh
+		line_renderer.points.append(Vector3(0, 0, 0))
+		line_renderer.points.append(Vector3(0, 0, 0))
 	set_process(firing)
+
 
 func _ready() -> void:
 	assert(line_renderer)
@@ -35,8 +38,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if __collider:
-		__collider.reset()
+	if collider:
+		collider.reset()
 	
 	var points = line_renderer.points
 	points.clear()
@@ -48,7 +51,7 @@ func _process(_delta: float) -> void:
 		var obj := raycast.get_collider()
 		if obj is LaserColliderProvider:
 			var provider := obj as LaserColliderProvider
-			__collider = provider.laser_collider
-			__collider.collide(self)
+			collider = provider.laser_collider
+			collider.collide(self)
 	if points.size() == 1:
 		points.append(Vector3.FORWARD * raycast.target_position.length())

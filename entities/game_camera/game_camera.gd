@@ -4,8 +4,7 @@ extends Camera3D
 
 const RAY_LENGTH := 64
 
-
-var __selected_emitter: LaserEmitter
+var selected_emitter: LaserEmitter
 
 
 func _input(event: InputEvent) -> void:
@@ -21,14 +20,14 @@ func _input(event: InputEvent) -> void:
 				if obj is LaserEmitterProvider:
 					var provider := obj as LaserEmitterProvider
 					var laser_emitter = provider.laser_emitter
-					if __selected_emitter != laser_emitter:
-						if __selected_emitter:
-							__selected_emitter.selected = false
-						__selected_emitter = laser_emitter
-						__selected_emitter.selected = true
+					if selected_emitter != laser_emitter:
+						if selected_emitter:
+							selected_emitter.selected = false
+						selected_emitter = laser_emitter
+						selected_emitter.selected = true
 					else:
-						assert(__selected_emitter.selected)
-						__selected_emitter.toggle()
-			elif __selected_emitter:
-				__selected_emitter.selected = false
-				__selected_emitter = null
+						assert(selected_emitter.selected)
+						selected_emitter.toggle()
+			elif selected_emitter:
+				selected_emitter.selected = false
+				selected_emitter = null

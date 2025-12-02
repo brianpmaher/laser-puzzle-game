@@ -8,7 +8,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_uejub"]
 size = Vector3(0.3984375, 0.39562988, 0.3059082)
 
-[node name="LaserReceiverDirectional" type="Node3D" unique_id=948548707 node_paths=PackedStringArray("laser_collider", "mesh_instance")]
+[node name="LaserReceiverDirectional" type="Node3D" unique_id=948548707 node_paths=PackedStringArray("laser_collider", "mesh_instance") groups=["laser_receivers"]]
 script = ExtResource("1_f8vsi")
 laser_collider = NodePath("StaticBody3D/LaserCollider")
 mesh_instance = NodePath("MeshInstance3D")

@@ -1,11 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmc32lw1h3ay7"]
+[gd_scene load_steps=4 format=3 uid="uid://cmc32lw1h3ay7"]
 
-[ext_resource type="PackedScene" uid="uid://busbwgedsb0xt" path="res://levels/level_001/level_001.tscn" id="1_hvuti"]
-[ext_resource type="PackedScene" uid="uid://ogjltvbkjckk" path="res://entities/game_camera/game_camera.tscn" id="2_6tvrh"]
+[ext_resource type="Script" uid="uid://cag5mehw071f8" path="res://levels/level_manager/level_manager.gd" id="1_hto1r"]
+[ext_resource type="PackedScene" uid="uid://ogjltvbkjckk" path="res://entities/game_camera/game_camera.tscn" id="2_cs1sv"]
+[ext_resource type="PackedScene" uid="uid://busbwgedsb0xt" path="res://levels/level_001/level_001.tscn" id="2_lesi0"]
 
-[node name="LevelManager3" type="Node3D" unique_id=294143390]
-
-[node name="Level001" parent="." unique_id=1679937270 instance=ExtResource("1_hvuti")]
+[node name="LevelManager" type="Node3D" unique_id=294143390]
+script = ExtResource("1_hto1r")
+levels = Array[PackedScene]([ExtResource("2_lesi0")])
 
 [node name="Lighting" type="Node3D" parent="." unique_id=1404983482]
 transform = Transform3D(0.8415108, 0, -0.5402403, 0, 1, 0, 0.5402403, 0, 0.8415108, 0, 0, 0)
@@ -22,5 +23,5 @@ light_energy = 0.5
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -10, 1, 10)
 light_energy = 0.2
 
-[node name="GameCamera" parent="." unique_id=1780145891 instance=ExtResource("2_6tvrh")]
+[node name="GameCamera" parent="." unique_id=1780145891 instance=ExtResource("2_cs1sv")]
 transform = Transform3D(0.70710653, -0.40660015, 0.578512, 0, 0.8181397, 0.57501936, -0.70710653, -0.40660015, 0.578512, 5, 5, 5)

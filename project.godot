@@ -30,6 +30,10 @@ window/stretch/aspect="keep_width"
 
 enabled=PackedStringArray("res://addons/LineRenderer/plugin.cfg", "res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg")
 
+[global_group]
+
+laser_receivers=""
+
 [layer_names]
 
 3d_physics/layer_1="Laser"
