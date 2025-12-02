@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bxcii7b4gmy8u" path="res://entities/game_camera/game_camera.gd" id="1_d45us"]
 
 [node name="GameCamera" type="Camera3D" unique_id=1780145891]
+keep_aspect = 0
 projection = 1
 size = 3.317
 script = ExtResource("1_d45us")
