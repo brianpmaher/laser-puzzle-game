@@ -6,7 +6,7 @@ extends Node3D
 @export var levels: Array[PackedScene]
 
 var current_level_idx := 0
-var current_level: Node
+var current_level: Level
 
 
 func load_next_level() -> void:
@@ -16,7 +16,9 @@ func load_next_level() -> void:
 	else:
 		remove_child(current_level)
 	current_level = levels[current_level_idx].instantiate()
-	print("Loading level: ", current_level.name)
+	assert(current_level)
+	assert(current_level is Level)
+	print("Loading level: ", current_level.name, ", name: ", current_level.level_name)
 	add_child(current_level)
 
 

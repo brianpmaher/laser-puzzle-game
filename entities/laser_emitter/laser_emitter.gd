@@ -1,3 +1,4 @@
+@tool
 class_name LaserEmitter
 extends PuzzleEntity
 
@@ -19,11 +20,13 @@ func _ready() -> void:
 	
 	assert(laser)
 	
-	laser.set_color(color)
-	laser.toggle(firing)
+	if not Engine.is_editor_hint():
+		laser.set_color(color)
+		laser.toggle(firing)
 
 
 func _process(_delta: float) -> void:
-	if selected:
-		var box_pos := global_position - Vector3(.5, 0, .5)
-		DebugDraw3D.draw_box(box_pos, quaternion, scale, Color.YELLOW)
+	if not Engine.is_editor_hint():
+		if selected:
+			var box_pos := global_position - Vector3(.5, 0, .5)
+			DebugDraw3D.draw_box(box_pos, quaternion, scale, Color.YELLOW)

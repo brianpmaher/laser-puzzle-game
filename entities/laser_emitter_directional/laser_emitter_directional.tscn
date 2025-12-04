@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1xlmwjdbpwhl"]
+[gd_scene load_steps=8 format=3 uid="uid://b1xlmwjdbpwhl"]
 
 [ext_resource type="Script" uid="uid://cr1g12g6vf0kb" path="res://entities/laser_emitter/laser_emitter.gd" id="1_e6at1"]
 [ext_resource type="ArrayMesh" uid="uid://bj4dd26lo5gsw" path="res://entities/laser_emitter_directional/laser_emitter_directional.vox" id="1_xbyob"]
 [ext_resource type="PackedScene" uid="uid://d3heu56m16x32" path="res://entities/laser/laser.tscn" id="2_w3xv2"]
 [ext_resource type="Script" uid="uid://dkj4fysd0tuqi" path="res://entities/laser_emitter/laser_emitter_provider.gd" id="4_he38d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3i3q"]
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w3xv2"]
 size = Vector3(0.39837646, 0.3945923, 0.50035095)
@@ -18,6 +22,7 @@ mesh_instance = NodePath("MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2127569080]
 mesh = ExtResource("1_xbyob")
+surface_material_override/0 = SubResource("StandardMaterial3D_v3i3q")
 
 [node name="Laser" parent="." unique_id=996571359 instance=ExtResource("2_w3xv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)

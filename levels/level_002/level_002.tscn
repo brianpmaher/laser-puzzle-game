@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqsdspyntx4ab"]
+
+[ext_resource type="Script" uid="uid://c1nhg8mvihxii" path="res://levels/level/level.gd" id="1_6cs5o"]
+[ext_resource type="PackedScene" uid="uid://b1xlmwjdbpwhl" path="res://entities/laser_emitter_directional/laser_emitter_directional.tscn" id="1_qb58v"]
+[ext_resource type="PackedScene" uid="uid://hhu6r1wgtfox" path="res://entities/laser_receiver_directional/laser_receiver_directional.tscn" id="2_r0vki"]
+[ext_resource type="PackedScene" uid="uid://luwo03kkqqb7" path="res://entities/tile/tile.tscn" id="3_r0vki"]
+[ext_resource type="PackedScene" uid="uid://ce1dcyjs0yo0y" path="res://entities/mirror_directional/mirror_directional.tscn" id="4_ya0j5"]
+
+[node name="Level002" type="Node3D" unique_id=562218985]
+script = ExtResource("1_6cs5o")
+level_name = "Click to rotate mirror"
+
+[node name="LaserEmitterDirectional" parent="." unique_id=1889599944 instance=ExtResource("1_qb58v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="LaserReceiverDirectional" parent="." unique_id=948548707 instance=ExtResource("2_r0vki")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, 0)
+
+[node name="Tile" parent="." unique_id=1097886282 instance=ExtResource("3_r0vki")]
+
+[node name="Tile2" parent="." unique_id=1778425536 instance=ExtResource("3_r0vki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Tile3" parent="." unique_id=1686126657 instance=ExtResource("3_r0vki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="MirrorDirectional" parent="." unique_id=1404610493 instance=ExtResource("4_ya0j5")]
+transform = Transform3D(-1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, -1, 0, 0, 0)

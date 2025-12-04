@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmc32lw1h3ay7"]
+[gd_scene load_steps=5 format=3 uid="uid://cmc32lw1h3ay7"]
 
 [ext_resource type="Script" uid="uid://cag5mehw071f8" path="res://levels/level_manager/level_manager.gd" id="1_hto1r"]
 [ext_resource type="PackedScene" uid="uid://ogjltvbkjckk" path="res://entities/game_camera/game_camera.tscn" id="2_cs1sv"]
 [ext_resource type="PackedScene" uid="uid://busbwgedsb0xt" path="res://levels/level_001/level_001.tscn" id="2_lesi0"]
+[ext_resource type="PackedScene" uid="uid://bqsdspyntx4ab" path="res://levels/level_002/level_002.tscn" id="3_lesi0"]
 
 [node name="LevelManager" type="Node3D" unique_id=294143390]
 script = ExtResource("1_hto1r")
-levels = Array[PackedScene]([ExtResource("2_lesi0")])
+levels = Array[PackedScene]([ExtResource("2_lesi0"), ExtResource("3_lesi0")])
 
 [node name="Lighting" type="Node3D" parent="." unique_id=1404983482]
 transform = Transform3D(0.8415108, 0, -0.5402403, 0, 1, 0, 0.5402403, 0, 0.8415108, 0, 0, 0)
